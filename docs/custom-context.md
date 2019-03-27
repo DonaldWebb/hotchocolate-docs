@@ -10,7 +10,7 @@ When implementing custom middleware, it can be useful to be able to store custom
 The global custom context data is a thread-safe dictionary that is available in the `IQueryContext` and in the `IResolverContext`. This means you are able to share context data between query middleware components and field middleware components.
 
 ```csharp
-builder.User(context => {
+builder.Use(context => {
     context.ContextData["foo"] = "bar";
 });
 ```
@@ -22,14 +22,14 @@ The scoped context data dictionary is only available in the `IResolverContext` a
 ```graphql
 {
   a {
-      b {
-          c
-      }
+    b {
+      c
+    }
   }
   d {
-      e {
-          f
-      }
+    e {
+      f
+    }
   }
 }
 ```
